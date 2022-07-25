@@ -108,10 +108,24 @@ public class TasksPage {
         return this;
     }
 
+    /**
+     * Проверка наличия задачи {{taskNumber}}
+     * @param taskNumber Номер задачи
+     */
     public TasksPage findTask(String taskNumber) {
         form.$x(".//div[@class='task-card']//p[contains(text(), '" + taskNumber + "')]")
                 .shouldBe(Condition.appear, MisstatsSettings.timeout())
                 .shouldBe(Condition.visible);
+        return this;
+    }
+
+    /**
+     * Проверка отсутствия задачи {{taskNumber}}
+     * @param taskNumber Номер задачи
+     */
+    public TasksPage taskIsNotExist(String taskNumber) {
+        form.$x(".//div[@class='task-card']//p[contains(text(), '" + taskNumber + "')]")
+                .shouldNotBe(Condition.exist.because("Задачи с номером '" + taskNumber + "' не должно существовать"));
         return this;
     }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Задача">
+    <test name="Добавление задачи">
+        <parameter name="resource" value="misstatsadmin"/>
+        <parameter name="taskNumber" value="12345"/>
+        <classes>
+            <class name="actions.AddTaskTest"/>
+        </classes>
+    </test>
+</suite>

@@ -13,8 +13,8 @@ public class Tears {
             Properties properties = new Properties();
             properties.load(new FileInputStream("src/main/resources/" + resource + ".properties"));
             String host = properties.getProperty("host");
-            Selenide.open(host);
             Configuration.browserSize = "1920x1080";
+            Selenide.open(host);
         } catch (Exception e) {
             e.printStackTrace();
         }

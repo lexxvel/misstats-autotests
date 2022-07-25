@@ -2,10 +2,11 @@ package actions;
 
 import api.Task;
 import com.codeborne.selenide.Condition;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 import pageobjects.Header;
 import pageobjects.TasksPage;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import system.Auth;
 import system.MisstatsSettings;
 import system.Tears;
@@ -15,16 +16,19 @@ public class AddTaskTest {
     Auth auth;
     Header header;
     TasksPage tasksPage;
-    String resource = "misstatsadmin";
-    String taskNumber = "12345";
+    String resource;
+    String taskNumber;
 
     @Test
-    void entryPoint() {
+    @Parameters({"resource", "taskNumber"})
+    void entryPoint(String resource, String taskNumber) {
         try {
+            this.resource = resource;
+            this.taskNumber = taskNumber;
             tears = new Tears();
             auth = new Auth();
 
-            tears.tearUp(resource);
+            tears.tearUp(this.resource);
 
             clearTestData();
             step1_Login();
@@ -52,6 +56,7 @@ public class AddTaskTest {
 
             tasksPage = new TasksPage();
             tasksPage
+                    .taskIsNotExist(taskNumber)
                     .clickAddTask()
                     .modalAddTaskIsAppear()
                     .fillTaskNumber(taskNumber)
