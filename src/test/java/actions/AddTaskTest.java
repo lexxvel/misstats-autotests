@@ -2,6 +2,7 @@ package actions;
 
 import api.Task;
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.Step;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageobjects.Header;
@@ -40,16 +41,22 @@ public class AddTaskTest {
         }
     }
 
+    @Step("Авторизация")
     private void step1_Login() {
-        header = new Header();
-        header.clickGoToLogin();
+        try {
+            header = new Header();
+            header.clickGoToLogin();
 
-        auth.auth(resource);
+            auth.auth(resource);
 
-        header.btn_Выйти
-                .should(Condition.appear.because("Произведен вход, должна появиться кнопка выхода"), MisstatsSettings.timeout());
+            header.btn_Выйти
+                    .should(Condition.appear.because("Произведен вход, должна появиться кнопка выхода"), MisstatsSettings.timeout());
+        } catch (Throwable t) {
+            MisstatsSettings.fail(t);
+        }
     }
 
+    @Step("Добавление задачи")
     private void step2_AddTask() {
         try {
             header.clickGoToTasks();
@@ -65,10 +72,10 @@ public class AddTaskTest {
                     .clickSaveModal();
             Assertions.assertFalse(tasksPage.modalAddTaskIsDisplayed());
 
-            tasksPage.findTask(taskNumber);
+            tasksPage.findTask("354534543");
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Throwable t) {
+            MisstatsSettings.fail(t);
         }
     }
 

@@ -47,11 +47,112 @@
             <version>7.6.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>2.16.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.16.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
+        <testNG.version>7.4.0</testNG.version>
     </properties>
 
+    <build>
+        <finalName>app-autotesting-ecp-1.0-SNAPSHOT</finalName>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>4.0.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>3.3.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>4.0.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+                <configuration>
+                    <reportVersion>2.16.0</reportVersion>
+                    <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <allure.results.directory>${project.basedir}/target/allure-results
+                                </allure.results.directory>
+                            </systemPropertyVariables>
+                            <suiteXmlFiles>
+                            </suiteXmlFiles>
+                            <argLine>
+                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.4/aspectjweaver-1.9.4.jar"
+                            </argLine>
+                            <systemProperties>
+                                <property>
+                                    <name>allure.results.directory</name>
+                                    <value>${project.basedir}/target/allure-results/</value>
+                                </property>
+                            </systemProperties>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>1.9.4</version>
+                        <scope>compile</scope>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.4/aspectjweaver-1.9.4.jar"
+                    </argLine>
+                    <systemProperties>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>${project.basedir}/target/allure-results/</value>
+                        </property>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

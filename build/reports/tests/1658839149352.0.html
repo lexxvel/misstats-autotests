@@ -1,0 +1,354 @@
+<html lang="ru" class=""><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MISstats</title>
+    <link rel="icon" href="http://127.0.0.1:8000/images/favicon.ico">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/css/app.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/css/main.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/css/uikit.min.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/css/uikit.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/css/uikit-icons.min.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/css/uikit-icons.css">
+
+<style>
+.uk-navbar-container{
+  height: 55px;
+  background-color: aliceblue;
+}
+.uk-navbar-nav{
+  height: 55px;
+}
+.uk-active{
+  height: 55px;
+}
+.LIheaderDD{
+  height: 55px;
+}
+</style><style>
+.spin[data-v-02c80d3f] {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+</style><style>
+.task-card{
+    width: 100%;
+    height: auto;
+    border: 2px solid rgb(240, 240, 240);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+    background-color: rgb(252, 252, 252);
+}
+.task-header{
+    width: 100%;
+    min-height: 25px;
+    max-height: 25px;
+    background-color: rgb(240, 240, 240);
+    border-top: 1px solid rgb(240, 240, 240);
+    border-left: 1px solid rgb(240, 240, 240);
+    border-right: 1px solid rgb(240, 240, 240);
+    border-radius: 10px;
+}
+.task-header-number{
+    width: 28%;
+    min-height: 25px;
+    max-height: 25px;
+    border-right: 1px solid rgb(223, 223, 223);
+    float: left;
+    padding-left: 5px;
+}
+.task-header-sprint{
+    width: 32%;
+    min-height: 25px;
+    max-height: 25px;
+    border-right: 1px solid rgb(223, 223, 223);
+    float: left;
+    padding-left: 5px;
+}
+.task-header-plan{
+    width: 20%;
+    min-height: 25px;
+    max-height: 25px;
+    border-left: 1px solid rgb(223, 223, 223);
+    float: left;
+    padding-left: 5px;
+}
+.task-header-fact{
+    width: 20%;
+    min-height: 25px;
+    max-height: 25px;
+    border-left: 1px solid rgb(223, 223, 223);
+    float: left;
+    padding-left: 5px;
+}
+.task-fail{
+    width: 100%;
+    float: left;
+    min-height: 25px;
+    max-height: 25px;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 10px;
+}
+.task-fail-cause{
+    width: 50%;
+    min-height: 25px;
+    max-height: 25px;
+    border-right: 1px solid rgb(223, 223, 223);
+    float: left;
+    padding-left: 5px;
+}
+.task-fail-person{
+    width: 50%;
+    min-height: 25px;
+    max-height: 25px;
+    border-left: 1px solid rgb(223, 223, 223);
+    float: left;
+    padding-left: 5px;
+}
+.sectionTextWValue{
+    width: 95%;
+    float: left;
+}
+.sectionTextWValueSmall{
+    width: 90%;
+    float: left;
+}
+.sectionBtnSmall{
+    width: 10%;
+    float: left;
+    background-color: none;
+    min-height: 25px;
+    max-height: 25px;
+    margin: 0 0 0 0;
+}
+.alertTask {
+    background-color: rgba(255, 209, 209, 0.389);
+}
+p {
+    margin: 0 0 0 0;
+}
+</style><style>
+.footerContain {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+
+</style><style>
+.selectSmall {
+    display: inline-block;
+    width: 500px;
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+}
+.labelMax {
+    margin: 0 1000px 0 0;
+}
+</style><style>
+.uk-card-header{
+    padding: 10px 20px 15px 20px;
+    min-height: 40px;
+    max-height: 40px;
+}
+.uk-card-person{
+    margin: 10px 15px 10px 15px;
+    display: block;
+    border:1px solid black;
+    float: left;
+    overflow: hidden;
+    border-radius: 7px;
+    border-color: #00499c2d;
+    background-color: rgba(230, 240, 255, 0.233);
+    padding-left:0%; 
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 150px;
+    max-height: 150px;
+    position:relative;
+}
+.uk-card:hover{
+    background-color: rgba(190, 215, 252, 0.266);
+}
+.uk-grid{
+    max-width: 100%;
+    margin-left:0%;
+    margin-top:0%;
+}
+.uk-grid+.uk-grid{
+    margin-top:0%;
+}
+.uk-text-emphasis{
+    font-size: 16px;
+}
+.uk-card-body{
+    padding: 0 10px;
+    min-height: 120px;
+    max-height: 120px;
+}
+.uk-card-footer {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 40px;
+    max-height: 40px;
+    padding: 10px 20px 10px 20px;
+    position:absolute;
+	bottom:0;
+}
+.CardItemName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12pt;
+}
+.btnEditItem {
+    position: absolute;
+    z-index:  100;
+    margin: 0 0 0 0;
+    height: auto;
+}
+.btnEditItemIcon{
+    min-height: 20px; 
+    max-height: 20px;
+    min-width: 20px;
+    max-width: 20px;
+}
+.personPostName{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+</style><style>
+.personsWindow {
+    display: block;
+    min-height: 100%;
+    height: auto;
+}
+</style><style>
+.contain {
+    display: block;
+    min-height: 100%;
+    height: auto;
+}
+</style><style>
+.contain {
+    display: block;
+    min-height: 100%;
+    height: auto;
+}
+.about {
+   display: block;
+    min-height: 100%;
+    height: auto;
+}
+</style><style>
+.uk-card-header{
+    padding: 10px 20px 15px 20px;
+    min-height: 40px;
+    max-height: 40px;
+}
+.uk-card{
+    margin: 10px 15px 10px 15px;
+    display: block;
+    border:1px solid black;
+    float: left;
+    overflow: hidden;
+    border-radius: 7px;
+    border-color: #00499c2d;
+    background-color: rgba(230, 240, 255, 0.233);
+    padding-left:0%; 
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 80px;
+    max-height: 80px;
+    position:relative;
+}
+.uk-card:hover{
+    background-color: rgba(190, 215, 252, 0.266);
+}
+.uk-grid{
+    max-width: 100%;
+    margin-left:0%;
+    margin-top:0%;
+}
+.uk-grid+.uk-grid{
+    margin-top:0%;
+}
+.uk-text-emphasis{
+    font-size: 16px;
+}
+.uk-card-body{
+    padding: 0 10px;
+    min-height: 120px;
+    max-height: 120px;
+}
+.uk-card-footer {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 40px;
+    max-height: 40px;
+    padding: 10px 20px 10px 20px;
+    position:absolute;
+	bottom:0;
+}
+.CardItemName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 10pt;
+}
+.isActualSprint {
+    position: absolute;
+    z-index:  100;
+    margin: 0 0 0 0;
+    height: auto;
+}
+.isActualImg{
+    min-height: 20px; 
+    max-height: 20px;
+    min-width: 20px;
+    max-width: 20px;
+}
+</style><style>
+.sprintsWindow {
+    display: block;
+    min-height: 100%;
+    height: auto;
+}
+</style><style>
+.sprintStatsCardName{
+    font-size: 12pt;
+}
+.uk-card-sprint{
+    margin: 10px 15px 10px 15px;
+    display: block;
+    border:1px solid black;
+    float: left;
+    overflow: hidden;
+    border-radius: 7px;
+    border-color: #00499c2d;
+    background-color: rgba(230, 240, 255, 0.233);
+    padding-left:0%; 
+    min-width: 465px;
+    max-width: 465px;
+    min-height: 150px;
+    max-height: 150px;
+    position:relative;
+}
+</style></head>
+<body style="">
+<div id="app"><div class="wrapper"><div class="header"><div><div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky" class="uk-sticky uk-sticky-fixed" style="position: fixed; top: 0px; width: 1000px;"><nav uk-navbar="" class="uk-navbar-container uk-navbar"><a href="/" class="router-link-active" value="Главная"><img src="/images/QAstatsLogo.png" alt="" href="" class="logo"></a> <div class="uk-navbar-right"><ul class="uk-navbar-nav"><li><a href="/tasks" aria-current="page" class="router-link-exact-active router-link-active" id="HeaderTasksBtn" style="min-height: 55px; max-height: 55px;">Задачи</a></li> <li><a href="/persons" class="" style="min-height: 55px; max-height: 55px;">Сотрудники</a></li> <li><a href="/sprints" class="" style="min-height: 55px; max-height: 55px;">Спринты</a></li> <li><a href="/graphs" class="" style="min-height: 55px; max-height: 55px;">Графики</a></li> <li><a href="/stats" class="" style="min-height: 55px; max-height: 55px;">Статистика</a></li> <!----> <li><div class="uk-navbar-right"><ul class="uk-navbar-nav"><li class="uk-active"><a href="#" id="HeaderUserName" style="min-height: 55px; max-height: 55px;">admin</a></li> <li><a id="HeaderLogoutBtn" style="color: red; min-height: 55px; max-height: 55px;">Выход</a></li></ul></div></li></ul></div></nav></div><div class="uk-sticky-placeholder" style="height: 55px; margin: 0px;"></div></div></div> <div uk-panel-scrollable="" class="contain"><div class="TasksPage"><div><div class="filterPanel"><div><p class="uk-text-uppercase uk-text-meta">Категория:  </p></div> <div><div class="uk-margin uk-grid-small uk-child-width-auto uk-grid"><label><input id="radioMain" type="radio" name="radio2" checked="checked" class="uk-radio"> Все</label> <label><input type="radio" name="radio2" class="uk-radio"> Актуальные</label> <label><input type="radio" name="radio2" class="uk-radio"> Без итога</label> <label><input type="radio" name="radio2" class="uk-radio"> Проблемные</label> <label><input type="radio" name="radio2" class="uk-radio"> Не проблемные</label></div> <button class="BtnFilterAccept uk-button uk-button-primary uk-button-small">Применить</button></div></div> <div><h3 class="uk-text-muted">Задачи:</h3> <button id="modalBtn" href="#modal-addTask-center" uk-toggle="" class="uk-button uk-button-primary" aria-expanded="false">Добавить</button> <div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-12345"><p> Задача: 12345</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-13</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><p>Факт: </p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Не указана</p> <!----></div> <div class="task-fail-person"><p>Виновный: Не указан</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-4234343"><p> Задача: 4234343</p></a></div> <!----></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-13</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><!----> <p style="color: rgb(255, 0, 0);">Факт: 4</p></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Много ошибок</p> <!----></div> <div class="task-fail-person"><p>Виновный: Величко Александр Андреевич</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-423343"><p> Задача: 423343</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-13</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><p>Факт: </p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Много ошибок</p> <!----></div> <div class="task-fail-person"><p>Виновный: Величко Александр Андреевич</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-23456"><p> Задача: 23456</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-11</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><p>Факт: </p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Много ошибок</p> <!----></div> <div class="task-fail-person"><p>Виновный: Величко Александр Андреевич</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-1234567"><p> Задача: 1234567</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-13</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><p>Факт: </p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Много ошибок</p> <!----></div> <div class="task-fail-person"><p>Виновный: Величко Александр Андреевич</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-123456"><p> Задача: 123456</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-13</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><p>Факт: </p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Не указана</p> <!----></div> <div class="task-fail-person"><p>Виновный: Не указан</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-111222"><p> Задача: 111222</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-13</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><p>Факт: 1</p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Затянута разработка</p> <!----></div> <div class="task-fail-person"><p>Виновный: Не указан</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-765756"><p> Задача: 765756</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-12</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><p>Факт: 1.2</p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Не указана</p> <!----></div> <div class="task-fail-person"><p>Виновный: Не указан</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-5654654"><p> Задача: 5654654</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-12</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><!----> <p style="color: rgb(255, 0, 0);">Факт: 5</p></div></div> <div class="task-fail"><div class="task-fail-cause"><!----> <p class="alertTask">Причина: Не указана</p></div> <div class="task-fail-person"><!----> <p class="alertTask">Виновный: Не указан</p></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-6565654"><p> Задача: 6565654</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Поликлиника - Спринт 22-12</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><p>Факт: </p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Затянута разработка</p> <!----></div> <div class="task-fail-person"><p>Виновный: Тестенко Тестан Тестовиич</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-423"><p> Задача: 423</p></a></div> <!----></div> <div class="task-header-sprint"><p>Team Поликлиника - Спринт 22-12</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><!----> <p style="color: rgb(255, 0, 0);">Факт: 2</p></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Затянута разработка</p> <!----></div> <div class="task-fail-person"><p>Виновный: Тестенко Тестан Тестовиич</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-5444"><p> Задача: 5444</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Поликлиника - Спринт 22-12</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><p>Факт: </p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Затянута разработка</p> <!----></div> <div class="task-fail-person"><p>Виновный: Не указан</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-8989"><p> Задача: 8989</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Поликлиника - Спринт 22-12</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><p>Факт: </p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Не указана</p> <!----></div> <div class="task-fail-person"><p>Виновный: Не указан</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-9999"><p> Задача: 9999</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-12</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><p>Факт: </p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Много ошибок</p> <!----></div> <div class="task-fail-person"><p>Виновный: Не указан</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-7676"><p> Задача: 7676</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-12</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><p>Факт: </p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Затянута разработка</p> <!----></div> <div class="task-fail-person"><p>Виновный: Не указан</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-121212"><p> Задача: 121212</p></a></div> <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fedit-icon.png&amp;f=1&amp;nofb=1" alt="" class="sectionBtnSmall"></a></div> <div class="task-header-sprint"><p>Team Поликлиника - Спринт 22-12</p></div> <div class="task-header-plan"><p>План: 0.2</p></div> <div class="task-header-fact"><p>Факт: </p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Не все учтено при оценке</p> <!----></div> <div class="task-fail-person"><p>Виновный: Тестенко Тестан Тестовиич</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-1"><p> Задача: 1</p></a></div> <!----></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-12</p></div> <div class="task-header-plan"><p>План: 1</p></div> <div class="task-header-fact"><!----> <p style="color: rgb(255, 0, 0);">Факт: 2.5</p></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Много ошибок</p> <!----></div> <div class="task-fail-person"><p>Виновный: Иванов Иван Иванович</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-22"><p> Задача: 22</p></a></div> <!----></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-11</p></div> <div class="task-header-plan"><p>План: 322</p></div> <div class="task-header-fact"><p>Факт: 2</p> <!----></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Не все учтено при оценке</p> <!----></div> <div class="task-fail-person"><p>Виновный: Величко Александр Андреевич</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-124"><p> Задача: 124</p></a></div> <!----></div> <div class="task-header-sprint"><p>Team Поликлиника - Спринт 22-12</p></div> <div class="task-header-plan"><p>План: 0.1</p></div> <div class="task-header-fact"><!----> <p style="color: rgb(255, 0, 0);">Факт: 0.2</p></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Много ошибок</p> <!----></div> <div class="task-fail-person"><p>Виновный: Величко Александр Андреевич</p> <!----></div></div></div><div class="task-card"><div class="task-header"><div class="task-header-number"><div class="sectionTextWValueSmall"><a href="https://jira.is-mis.ru/browse/PROMEDWEB-87900"><p> Задача: 87900</p></a></div> <!----></div> <div class="task-header-sprint"><p>Team Стационар - Спринт 22-12</p></div> <div class="task-header-plan"><p>План: 0.2</p></div> <div class="task-header-fact"><!----> <p style="color: rgb(255, 0, 0);">Факт: 1.7</p></div></div> <div class="task-fail"><div class="task-fail-cause"><p>Причина: Затянута разработка</p> <!----></div> <div class="task-fail-person"><p>Виновный: Иванов Иван Иванович</p> <!----></div></div></div></div>  <!----></div></div></div> <div class="footer"><div class="footerContain"><p>Copyright © 2022. All right are reserved.</p> <p>Author: Velichko A.A.</p> <a href="mailto:aleksandr.a.velichko@rtmis.ru">aleksandr.a.velichko@rtmis.ru</a></div></div></div> <br><br><br><br></div>
+
+<script src="http://127.0.0.1:8000/js/store.js"> </script>
+<script src="http://127.0.0.1:8000/js/uikit-icons.js"></script>
+<script src="http://127.0.0.1:8000/js/uikit.min.js"></script>
+<script src="http://127.0.0.1:8000/js/uikit.js"></script>
+<script src="http://127.0.0.1:8000/js/app.js"> </script>
+
+<div id="modal-addTask-center" uk-modal="" class="uk-flex-top uk-modal" tabindex="-1"><div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical"><form method="POST" class="add-task"><fieldset class="uk-fieldset"><div class="uk-margin"><input required="required" id="TaskNumberModal" type="text" placeholder="Номер задачи, например 101101" class="uk-input"></div> <div class="uk-margin"><label for="form-horizontal-select" class="uk-form-label">Спринт</label> <div class="uk-form-controls"><select required="required" test-id="TaskSprintModal" id="form-horizontal-select" class="uk-select"><option value="5">Team Стационар - Спринт 22-13</option><option value="3">Team Стационар - Спринт 22-11</option><option value="2">Team Поликлиника - Спринт 22-12</option><option value="1">Team Стационар - Спринт 22-12</option></select></div></div> <div class="uk-margin"><input required="required" test-id="TaskPlanTimeModal" type="text" placeholder="Оценка трудозатрат" class="uk-input"></div> <div class="uk-margin"><input test-id="TaskFactTimeModal" type="text" placeholder="Фактические трудозатраты" class="uk-input"></div> <div class="uk-margin"><label for="form-horizontal-select" class="uk-form-label">Причина задержки</label> <div class="uk-form-controls"><select test-id="TaskFailcauseModal" id="form-horizontal-select" class="uk-select"><option value="1">Не все учтено при оценке</option><option value="2">Затянута разработка</option><option value="3">Много ошибок</option><option value="101">Не указана</option></select></div></div> <div class="uk-margin"><label for="form-horizontal-select" class="uk-form-label">Виновный</label> <div class="uk-form-controls"><select id="form-horizontal-select" class="uk-select"><option value="1">Тестенко Тестан Тестовиич</option><option value="2">Величко Александр Андреевич</option><option value="102">Иванов Иван Иванович</option><option value="103">Петров Петр Петрович</option><option value="104">Кукуев Иван Алексеевич</option></select></div></div> <button type="button" class="uk-button uk-button-default uk-modal-close">Отмена</button> <button type="submit" class="uk-button uk-button-primary">Сохранить</button></fieldset></form></div></div></body></html>
