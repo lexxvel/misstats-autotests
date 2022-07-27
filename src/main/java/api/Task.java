@@ -4,7 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.response.Response;
-import pojos.DeleteTaskPojoRq;
+import pojos.taskPojos.DeleteTaskPojoRq;
+import system.MisstatsSettings;
 import system.Specification;
 
 import java.util.Collections;
@@ -44,9 +45,13 @@ public class Task {
                     .log().all()
                     .extract()
                     .response();
+            System.out.println("Ответ сервера: " + response.getBody().asString());
             return response.getStatusCode();
+            //Gson g = new Gson();
+            //Person person = g.fromJson("{\"name\": \"John\"}", Person.class);
+            //System.out.println(person.name); //John
         } catch (Throwable t) {
-            t.printStackTrace();
+            MisstatsSettings.fail(t);
             return 0;
         }
     }

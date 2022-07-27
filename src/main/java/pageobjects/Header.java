@@ -2,6 +2,7 @@ package pageobjects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import system.MisstatsSettings;
 
 import java.time.Duration;
@@ -15,6 +16,7 @@ public class Header {
     public SelenideElement btn_Выйти = header.$x(".//a[@id='HeaderLogoutBtn']");
 
     public SelenideElement btn_Задачи = header.$x(".//a[@id='HeaderTasksBtn']");
+    public SelenideElement btn_Сотрудники = header.$x(".//a[@id='HeaderPersonsBtn']");
 
     /**
      * Нажать "Войти" в шапке.
@@ -43,6 +45,17 @@ public class Header {
     public Header clickGoToTasks() {
         btn_Задачи
                 .shouldBe(Condition.appear, MisstatsSettings.timeout())
+                .shouldBe(Condition.visible)
+                .click();
+        return this;
+    }
+
+    /**
+     * Открыть вкладку "Сотрудники" в шапке.
+     */
+    @Step("Открыть вкладку Сотрудники")
+    public Header clickGoToPersons() {
+        btn_Сотрудники.shouldBe(Condition.appear, MisstatsSettings.timeout())
                 .shouldBe(Condition.visible)
                 .click();
         return this;

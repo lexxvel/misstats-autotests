@@ -32,7 +32,7 @@ public class AddTaskTest {
             tears.tearUp(this.resource);
 
             clearTestData();
-            step1_Login();
+            step1_Auth();
             step2_AddTask();
 
         } finally {
@@ -42,7 +42,7 @@ public class AddTaskTest {
     }
 
     @Step("Авторизация")
-    private void step1_Login() {
+    private void step1_Auth() {
         try {
             header = new Header();
             header.clickGoToLogin();
@@ -72,7 +72,7 @@ public class AddTaskTest {
                     .clickSaveModal();
             Assertions.assertFalse(tasksPage.modalAddTaskIsDisplayed());
 
-            tasksPage.findTask("354534543");
+            tasksPage.findTask(taskNumber);
 
         } catch (Throwable t) {
             MisstatsSettings.fail(t);
